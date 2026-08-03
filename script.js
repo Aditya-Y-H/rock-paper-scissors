@@ -1,15 +1,20 @@
+// const prompt = require("prompt-sync")();
+
 function getComputerChoice() {
-  choiceIndex = Math.floor(Math.random() * 10) % 3;
+  let choiceIndex = Math.floor(Math.random() * 10) % 3;
   switch (choiceIndex) {
     case 0:
-      return "Rock";
+      return "rock";
     case 1:
-      return "Paper";
+      return "paper";
     case 2:
-      return "Scissors";
+      return "scissors";
     default:
       throw Error("Random number is greater or less than allowed range.");
   }
 }
 
-console.log(getComputerChoice());
+function getHumanChoice() {
+  let choice = window.prompt("Rock / Paper / Scissors");
+  return choice.toLowerCase();
+}
