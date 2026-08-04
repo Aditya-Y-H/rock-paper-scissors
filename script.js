@@ -52,3 +52,15 @@ function playRound(computerChoice, humanChoice) {
     return "loose";
   }
 }
+
+const playerOptionsContainer = document.getElementById(
+  "player-options-container",
+);
+
+playerOptionsContainer.addEventListener("click", (event) => {
+  if (!event.target.classList.contains("player-option")) {
+    return;
+  }
+
+  alert(`You clicked ${event.target.textContent}.`);
+});
