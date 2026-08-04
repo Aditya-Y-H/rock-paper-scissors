@@ -52,36 +52,3 @@ function playRound(computerChoice, humanChoice) {
     return "loose";
   }
 }
-
-function playGame() {
-  let playerScore = 0;
-  let computerScore = 0;
-
-  const rounds = 5;
-
-  for (let i = 0; i < rounds; i++) {
-    let computerChoice = getComputerChoice();
-    let humanChoice = getHumanChoice();
-
-    let result = playRound(computerChoice, humanChoice);
-    if (result === "win") {
-      playerScore++;
-    } else if (result === "loose") {
-      computerScore++;
-    }
-  }
-
-  if (playerScore > computerScore) {
-    console.log(
-      `Congrats! You won the game!\nYour Score: ${playerScore}\nComputer Score: ${computerScore}`,
-    );
-  } else if (playerScore < computerScore) {
-    console.log(
-      `You lost. Better luck next time.\nYour Score: ${playerScore}\nComputer Score: ${computerScore}`,
-    );
-  } else {
-    console.log(
-      `Tie!\nYour Score: ${playerScore}\nComputer Score: ${computerScore}`,
-    );
-  }
-}
