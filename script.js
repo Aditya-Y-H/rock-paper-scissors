@@ -52,6 +52,28 @@ const computerScore = document.getElementById("computer-score");
 const winOrLooseDeclaration = document.getElementById(
   "win-or-loose-declaration",
 );
+const bestOfFiveVictor = document.getElementById("best-of-five-victor");
+const resetGameBtn = document.getElementById("reset-game-btn");
+
+let hasWinner = false;
+
+function declareWinner(winner) {
+  if (winner === "player") {
+    bestOfFiveVictor.textContent = "You won the game! Congratulations!";
+  } else {
+    bestOfFiveVictor.textContent = "You lost. Better luck next time.";
+  }
+  hasWinner = true;
+  resetGameBtn.classList.add("show");
+}
+
+function checkWinner() {
+  if (parseInt(playerScore.textContent) >= 5) {
+    declareWinner("player");
+  } else if (parseInt(computerScore.textContent) >= 5) {
+    declareWinner("computer");
+  }
+}
 
 function updateScore(result) {
   if (result === "win") {
@@ -59,10 +81,15 @@ function updateScore(result) {
   } else if (result === "loose") {
     computerScore.textContent = parseInt(computerScore.textContent) + 1;
   }
+
+  checkWinner();
 }
 
 playerOptionsContainer.addEventListener("click", (event) => {
   if (!event.target.classList.contains("player-option")) {
+    return;
+  }
+  if (hasWinner) {
     return;
   }
 
@@ -85,4 +112,18 @@ playerOptionsContainer.addEventListener("click", (event) => {
     case "tie":
       winOrLooseDeclaration.textContent = `You tied. ${capitalizeFirstLetter(humanChoice)} ties ${capitalizeFirstLetter(computerChoice)}`;
   }
+});
+
+const resultText = document.querySelectorAll(".result-text");
+
+resetGameBtn.addEventListener("click", () => {
+  playerScore.textContent = "0";
+  computerScore.textContent = "0";
+  hasWinner = false;
+
+  resultText.forEach((elm) => {
+    elm.textContent = "";
+  });
+
+  resetGameBtn.classList.remove("show");
 });
