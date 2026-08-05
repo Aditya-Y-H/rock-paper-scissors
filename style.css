@@ -51,6 +51,12 @@ body {
     font-size: 2.75rem;
 }
 
+.player-choice-display {
+    font-size: 3rem;
+    text-transform: capitalize;
+    text-align: center;
+}
+
 .score-container {
     flex: 1;
     display: flex;

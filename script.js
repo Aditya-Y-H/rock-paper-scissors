@@ -46,7 +46,9 @@ function capitalizeFirstLetter(word) {
 const playerOptionsContainer = document.getElementById(
   "player-options-container",
 );
-const choicesMade = document.getElementById("choices-made");
+
+const humanChoiceDisplay = document.getElementById("human-choice");
+const computerChoiceDisplay = document.getElementById("computer-choice");
 const humanScore = document.getElementById("human-score");
 const computerScore = document.getElementById("computer-score");
 const winOrLooseDeclaration = document.getElementById(
@@ -96,7 +98,8 @@ playerOptionsContainer.addEventListener("click", (event) => {
   const humanChoice = event.target.textContent.toLowerCase();
   const computerChoice = getComputerChoice();
 
-  choicesMade.textContent = `You chose: ${capitalizeFirstLetter(humanChoice)} | The computer chose: ${capitalizeFirstLetter(computerChoice)}`;
+  humanChoiceDisplay.textContent = humanChoice;
+  computerChoiceDisplay.textContent = computerChoice;
 
   const result = playRound(humanChoice, computerChoice);
 
