@@ -64,7 +64,7 @@ function declareWinner(winner) {
     bestOfFiveVictor.textContent = "You lost. Better luck next time.";
   }
   hasWinner = true;
-  resetGameBtn.classList.add("show");
+  resetGameBtn.classList.add("show-reset");
 }
 
 function checkWinner() {
@@ -125,5 +125,5 @@ resetGameBtn.addEventListener("click", () => {
     elm.textContent = "";
   });
 
-  resetGameBtn.classList.remove("show");
+  resetGameBtn.classList.remove("show-reset");
 });
