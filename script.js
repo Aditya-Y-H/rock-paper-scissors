@@ -47,7 +47,7 @@ const playerOptionsContainer = document.getElementById(
   "player-options-container",
 );
 const choicesMade = document.getElementById("choices-made");
-const playerScore = document.getElementById("player-score");
+const humanScore = document.getElementById("human-score");
 const computerScore = document.getElementById("computer-score");
 const winOrLooseDeclaration = document.getElementById(
   "win-or-loose-declaration",
@@ -68,7 +68,7 @@ function declareWinner(winner) {
 }
 
 function checkWinner() {
-  if (parseInt(playerScore.textContent) >= 5) {
+  if (parseInt(humanScore.textContent) >= 5) {
     declareWinner("player");
   } else if (parseInt(computerScore.textContent) >= 5) {
     declareWinner("computer");
@@ -77,7 +77,7 @@ function checkWinner() {
 
 function updateScore(result) {
   if (result === "win") {
-    playerScore.textContent = parseInt(playerScore.textContent) + 1;
+    humanScore.textContent = parseInt(humanScore.textContent) + 1;
   } else if (result === "loose") {
     computerScore.textContent = parseInt(computerScore.textContent) + 1;
   }
@@ -117,7 +117,7 @@ playerOptionsContainer.addEventListener("click", (event) => {
 const resultText = document.querySelectorAll(".result-text");
 
 resetGameBtn.addEventListener("click", () => {
-  playerScore.textContent = "0";
+  humanScore.textContent = "0";
   computerScore.textContent = "0";
   hasWinner = false;
 
