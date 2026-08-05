@@ -34,7 +34,7 @@ body {
 
 #game-display-container {
     display: flex;
-    height: 60vh;
+    height: 55vh;
     color: #071c4d;
 }
 
