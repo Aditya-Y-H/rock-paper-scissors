@@ -3,6 +3,17 @@ body {
     padding: 0px;
     margin: 0px;
     background-color: #ffffff;
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+
+body > div {
+    flex: 1;
+}
+
+#title-container {
+    flex: 0;
 }
 
 #title {
@@ -33,6 +44,7 @@ body {
 /* Game Display */
 
 #game-display-container {
+    flex: 0 0 auto;
     display: flex;
     height: 55vh;
     color: #071c4d;
@@ -83,6 +95,7 @@ body {
 /* Player Option Buttons */
 
 #player-options-container {
+    flex: 0 0 auto;
     margin: 18px;
     text-align: center;
     background-color: #99a6c6;
@@ -134,7 +147,6 @@ body {
 /* Result text container */
 
 #results-container {
-    height: 20vh;
     background-color: gold;
     display: flex;
     justify-content: center;
