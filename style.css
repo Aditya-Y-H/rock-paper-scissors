@@ -1,6 +1,7 @@
 body {
     font-size: 16px;
-    padding:10px;
+    padding: 0px;
+    margin: 0px;
 }
 
 #title {
@@ -15,4 +16,48 @@ body {
     padding: 3px 12px;
     border-radius: 5px;
     font-size: 1.25rem;
+}
+
+/* Game Display */
+
+#game-display-container {
+    display: flex;
+    height: 60vh;
+    color: #071c4d;
+}
+
+.character-container {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+}
+
+.character-container > div {
+    flex: 2;
+}
+
+#human-container {
+    background-color: #57a3f8;
+}
+
+#computer-container {
+    background-color: #ffff52;
+}
+
+.character-name {
+    padding: 24px 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.75rem;
+}
+
+.score-container {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.score-container > span{
+    flex: 1;
 }
