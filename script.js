@@ -56,14 +56,16 @@ const winOrLooseDeclaration = document.getElementById(
 );
 const bestOfFiveVictor = document.getElementById("best-of-five-victor");
 const resetGameBtn = document.getElementById("reset-game-btn");
+const resultPara = document.getElementById("result");
 
 let hasWinner = false;
 
 function declareWinner(winner) {
+  console.log(winner);
   if (winner === "player") {
-    bestOfFiveVictor.textContent = "You won the game! Congratulations!";
+    resultPara.textContent = "You won the game! Congratulations!";
   } else {
-    bestOfFiveVictor.textContent = "You lost. Better luck next time.";
+    resultPara.textContent = "You lost. Better luck next time.";
   }
   hasWinner = true;
   resetGameBtn.classList.add("show-reset");
@@ -105,15 +107,19 @@ playerOptionsContainer.addEventListener("click", (event) => {
 
   updateScore(result);
 
+  if (hasWinner) {
+    return;
+  }
+
   switch (result) {
     case "win":
-      winOrLooseDeclaration.textContent = `You win! ${capitalizeFirstLetter(humanChoice)} beats ${capitalizeFirstLetter(computerChoice)}`;
+      resultPara.textContent = `You win! ${capitalizeFirstLetter(humanChoice)} beats ${capitalizeFirstLetter(computerChoice)}`;
       break;
     case "loose":
-      winOrLooseDeclaration.textContent = `You loose. ${capitalizeFirstLetter(humanChoice)} looses against ${capitalizeFirstLetter(computerChoice)}`;
+      resultPara.textContent = `You loose. ${capitalizeFirstLetter(humanChoice)} looses against ${capitalizeFirstLetter(computerChoice)}`;
       break;
     case "tie":
-      winOrLooseDeclaration.textContent = `You tied. ${capitalizeFirstLetter(humanChoice)} ties ${capitalizeFirstLetter(computerChoice)}`;
+      resultPara.textContent = `You tied. ${capitalizeFirstLetter(humanChoice)} ties ${capitalizeFirstLetter(computerChoice)}`;
   }
 });
 
