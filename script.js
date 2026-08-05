@@ -1,5 +1,5 @@
 function getComputerChoice() {
-  let choiceIndex = Math.floor(Math.random() * 10) % 3;
+  let choiceIndex = Math.floor(Math.random() * 3);
   switch (choiceIndex) {
     case 0:
       return "rock";
@@ -12,55 +12,77 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
-  let choice = window.prompt("Rock / Paper / Scissors");
-  return choice.toLowerCase();
-}
-
-function playRound(computerChoice, humanChoice) {
-  console.log(
-    `You Chose: ${humanChoice}. The computer chose: ${computerChoice}`,
-  );
+function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
-    console.log(
-      `You tied! ${humanChoice[0].toUpperCase() + humanChoice.slice(1)} equals ${computerChoice[0].toUpperCase() + humanChoice.slice(1)}`,
-    );
     return "tie";
   }
   if (computerChoice === "rock") {
     if (humanChoice === "paper") {
-      console.log("You win! Paper beats Rock.");
       return "win";
     }
-    console.log("You loose! Rock beats Scissors.");
     return "loose";
   }
   if (computerChoice === "paper") {
     if (humanChoice === "scissors") {
-      console.log("You win! Scissors beats Paper.");
       return "win";
     }
-    console.log("You loose! Paper beats Rock.");
     return "loose";
   }
   if (computerChoice === "scissors") {
     if (humanChoice === "rock") {
-      console.log("You win! Rock beats Scissors.");
       return "win";
     }
-    console.log("You loose! Scissors beats Paper.");
     return "loose";
   }
+}
+
+function capitalizeFirstLetter(word) {
+  if (!word) {
+    throw Error("Cannot capitalize nothing.");
+  }
+  return word[0].toUpperCase() + word.slice(1);
 }
 
 const playerOptionsContainer = document.getElementById(
   "player-options-container",
 );
+const choicesMade = document.getElementById("choices-made");
+const playerScore = document.getElementById("player-score");
+const computerScore = document.getElementById("computer-score");
+const winOrLooseDeclaration = document.getElementById(
+  "win-or-loose-declaration",
+);
+
+function updateScore(result) {
+  if (result === "win") {
+    playerScore.textContent = parseInt(playerScore.textContent) + 1;
+  } else if (result === "loose") {
+    computerScore.textContent = parseInt(computerScore.textContent) + 1;
+  }
+}
 
 playerOptionsContainer.addEventListener("click", (event) => {
   if (!event.target.classList.contains("player-option")) {
     return;
   }
 
-  alert(`You clicked ${event.target.textContent}.`);
+  const humanChoice = event.target.textContent.toLowerCase();
+  const computerChoice = getComputerChoice();
+
+  choicesMade.textContent = `You chose: ${capitalizeFirstLetter(humanChoice)} | The computer chose: ${capitalizeFirstLetter(computerChoice)}`;
+
+  const result = playRound(humanChoice, computerChoice);
+
+  updateScore(result);
+
+  switch (result) {
+    case "win":
+      winOrLooseDeclaration.textContent = `You win! ${capitalizeFirstLetter(humanChoice)} beats ${capitalizeFirstLetter(computerChoice)}`;
+      break;
+    case "loose":
+      winOrLooseDeclaration.textContent = `You loose. ${capitalizeFirstLetter(humanChoice)} looses against ${capitalizeFirstLetter(computerChoice)}`;
+      break;
+    case "tie":
+      winOrLooseDeclaration.textContent = `You tied. ${capitalizeFirstLetter(humanChoice)} ties ${capitalizeFirstLetter(computerChoice)}`;
+  }
 });
