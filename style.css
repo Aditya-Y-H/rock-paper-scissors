@@ -20,11 +20,14 @@ body {
 
 #reset-game-btn.show-reset {
     display: block;
-    border: 1px solid grey;
-    background-color: #d3d3d3;
     padding: 3px 12px;
     border-radius: 5px;
     font-size: 1.25rem;
+    padding: 6px 22px;
+    background-color: #f8f8f8;
+    color: red;
+    border: 1px solid red;
+    border-radius: 6px;
 }
 
 /* Game Display */
@@ -81,14 +84,16 @@ body {
 
 #player-options-container {
     margin: 18px;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    background-color: #99a6c6;
+    margin: 0px;
+    padding: 16px 0;
 }
 
 #player-options-container > button {
     margin: 8px;
-    padding: 8px 24px;
-    border: 3px solid white;
+    padding: 12px 36px;
+    border: 1px solid white;
     border-radius: 12px;
 }
 
@@ -119,4 +124,9 @@ body {
 #scissor-button:hover {
     background: #9ba6bf;
     background: linear-gradient(96deg, #99a6c6 0%, rgb(136, 164, 175) 50%);
+}
+
+#reset-btn-container {
+    display: flex;
+    justify-content: center;
 }
