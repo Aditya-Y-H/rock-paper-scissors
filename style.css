@@ -9,7 +9,11 @@ body {
     font-size: 2.5rem;
 }
 
-.show-reset {
+#reset-game-btn {
+    display: none;
+}
+
+#reset-game-btn.show-reset {
     display: block;
     border: 1px solid grey;
     background-color: #d3d3d3;
@@ -66,4 +70,48 @@ body {
 }
 .score-container > span{
     flex: 1;
+}
+
+/* Player Option Buttons */
+
+#player-options-container {
+    margin: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+#player-options-container > button {
+    margin: 8px;
+    padding: 8px 24px;
+    border: 3px solid white;
+    border-radius: 12px;
+}
+
+#rock-button {
+    background: #dbdbd3;
+    background: linear-gradient(90deg, #dbdbd3 0%, #bab8b6 100%);
+}
+
+#rock-button:hover {
+    background: #dbdbc4;
+    background: linear-gradient(90deg, #d2d2ce 0%, #aaa8a6 100%);
+}
+
+#paper-button {
+    background: #F8F8F8;
+    background: linear-gradient(65deg, #f8f8f8 0%, rgba(241, 241, 241, 1) 84%);
+}
+#paper-button:hover {
+    background: #F8F8F8;
+    background: linear-gradient(65deg, #efeff8 0%, #dbdedd 84%);
+}
+
+#scissor-button {
+    background: #9ba6bf;
+    background: linear-gradient(96deg, rgba(155, 166, 191, 1) 0%, rgba(175, 194, 201, 1) 50%);
+}
+
+#scissor-button:hover {
+    background: #9ba6bf;
+    background: linear-gradient(96deg, #99a6c6 0%, rgb(136, 164, 175) 50%);
 }
