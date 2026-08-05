@@ -54,7 +54,6 @@ const computerScore = document.getElementById("computer-score");
 const winOrLooseDeclaration = document.getElementById(
   "win-or-loose-declaration",
 );
-const bestOfFiveVictor = document.getElementById("best-of-five-victor");
 const resetGameBtn = document.getElementById("reset-game-btn");
 const resultPara = document.getElementById("result");
 
@@ -129,10 +128,9 @@ resetGameBtn.addEventListener("click", () => {
   humanScore.textContent = "0";
   computerScore.textContent = "0";
   hasWinner = false;
-
-  resultText.forEach((elm) => {
-    elm.textContent = "";
-  });
+  humanChoiceDisplay.textContent = "";
+  computerChoiceDisplay.textContent = "";
+  resultPara.textContent = "";
 
   resetGameBtn.classList.remove("show-reset");
 });
