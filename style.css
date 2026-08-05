@@ -8,6 +8,10 @@ body {
 #title {
     text-align: center;
     font-size: 2.5rem;
+    background-color: greenyellow;
+    margin: 0px;
+    padding: 28px;
+    color:rgb(61, 13, 13);
 }
 
 #reset-game-btn {
